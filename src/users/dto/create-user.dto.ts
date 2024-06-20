@@ -3,6 +3,14 @@ import {IsEmail, IsString, Length} from "class-validator";
 
 export class CreateUserDto{
 
+    @ApiProperty({example: 'Александр Довжик', description: 'Имя'})
+    @IsString({message: 'Должно быть строкой'})
+    readonly name: string;
+
+    @ApiProperty({example: 'ausdam', description: 'Логин'})
+    @IsString({message: 'Должно быть строкой'})
+    readonly login: string;
+
     @ApiProperty({example: 'user@mail.ru', description: 'Почтовый адрес'})
     @IsString({message: 'Должно быть строкой'})
     @IsEmail({}, {message: 'Некорректный email'})
